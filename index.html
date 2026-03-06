@@ -1,1 +1,350 @@
+-- CUSTOM CHAT SYSTEM FOR ROBLOX
+-- Paste this entire script into the Command Bar (View > Command Bar)
+-- This will create all necessary instances in StarterGui
 
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local StarterGui = game:GetService("StarterGui")
+local TweenService = game:GetService("TweenService")
+local UserInputService = game:GetService("UserInputService")
+
+-- Disable default chat
+StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Chat, false)
+
+-- Create RemoteEvents folder if it doesn't exist
+local remotes = ReplicatedStorage:FindFirstChild("ChatRemotes")
+if not remotes then
+    remotes = Instance.new("Folder")
+    remotes.Name = "ChatRemotes"
+    remotes.Parent = ReplicatedStorage
+end
+
+-- Create SendMessage RemoteEvent
+local sendMessageEvent = remotes:FindFirstChild("SendMessage")
+if not sendMessageEvent then
+    sendMessageEvent = Instance.new("RemoteEvent")
+    sendMessageEvent.Name = "SendMessage"
+    sendMessageEvent.Parent = remotes
+end
+
+-- Create the ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "CustomChatGUI"
+screenGui.ResetOnSpawn = false
+screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+-- Create main chat frame
+local chatFrame = Instance.new("Frame")
+chatFrame.Name = "ChatFrame"
+chatFrame.Size = UDim2.new(0, 400, 0, 250)
+chatFrame.Position = UDim2.new(0, 20, 0.7, -125)
+chatFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+chatFrame.BackgroundTransparency = 0.2
+chatFrame.BorderSizePixel = 0
+chatFrame.Visible = true
+chatFrame.Parent = screenGui
+
+-- Add corner radius
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 8)
+corner.Parent = chatFrame
+
+-- Add shadow
+local shadow = Instance.new("ImageLabel")
+shadow.Name = "Shadow"
+shadow.AnchorPoint = Vector2.new(0.5, 0.5)
+shadow.BackgroundTransparency = 1
+shadow.Position = UDim2.new(0.5, 0, 0.5, 4)
+shadow.Size = UDim2.new(1, 20, 1, 20)
+shadow.Image = "rbxassetid://1316045217"
+shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+shadow.ImageTransparency = 0.6
+shadow.ScaleType = Enum.ScaleType.Slice
+shadow.SliceCenter = Rect.new(10, 10, 118, 118)
+shadow.ZIndex = -1
+shadow.Parent = chatFrame
+
+-- Chat header
+local header = Instance.new("Frame")
+header.Name = "Header"
+header.Size = UDim2.new(1, 0, 0, 30)
+header.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+header.BorderSizePixel = 0
+header.Parent = chatFrame
+
+local headerCorner = Instance.new("UICorner")
+headerCorner.CornerRadius = UDim.new(0, 8)
+headerCorner.Parent = header
+
+local title = Instance.new("TextLabel")
+title.Name = "Title"
+title.Size = UDim2.new(1, -10, 1, 0)
+title.Position = UDim2.new(0, 10, 0, 0)
+title.BackgroundTransparency = 1
+title.Text = "💬 Custom Chat"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.TextSize = 14
+title.Font = Enum.Font.GothamBold
+title.TextXAlignment = Enum.TextXAlignment.Left
+title.Parent = header
+
+-- Scrolling frame for messages
+local scrollingFrame = Instance.new("ScrollingFrame")
+scrollingFrame.Name = "MessageContainer"
+scrollingFrame.Size = UDim2.new(1, -20, 1, -80)
+scrollingFrame.Position = UDim2.new(0, 10, 0, 40)
+scrollingFrame.BackgroundTransparency = 1
+scrollingFrame.BorderSizePixel = 0
+scrollingFrame.ScrollBarThickness = 4
+scrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(100, 100, 100)
+scrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
+scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+scrollingFrame.Parent = chatFrame
+
+local layout = Instance.new("UIListLayout")
+layout.Padding = UDim.new(0, 5)
+layout.SortOrder = Enum.SortOrder.LayoutOrder
+layout.Parent = scrollingFrame
+
+-- Input area
+local inputFrame = Instance.new("Frame")
+inputFrame.Name = "InputFrame"
+inputFrame.Size = UDim2.new(1, -20, 0, 35)
+inputFrame.Position = UDim2.new(0, 10, 1, -45)
+inputFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+inputFrame.BorderSizePixel = 0
+inputFrame.Parent = chatFrame
+
+local inputCorner = Instance.new("UICorner")
+inputCorner.CornerRadius = UDim.new(0, 6)
+inputCorner.Parent = inputFrame
+
+local textBox = Instance.new("TextBox")
+textBox.Name = "ChatInput"
+textBox.Size = UDim2.new(1, -20, 1, 0)
+textBox.Position = UDim2.new(0, 10, 0, 0)
+textBox.BackgroundTransparency = 1
+textBox.Text = ""
+textBox.PlaceholderText = "Type a message..."
+textBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+textBox.PlaceholderColor3 = Color3.fromRGB(150, 150, 150)
+textBox.TextSize = 14
+textBox.Font = Enum.Font.Gotham
+textBox.ClearTextOnFocus = false
+textBox.Parent = inputFrame
+
+-- Send button
+local sendButton = Instance.new("TextButton")
+sendButton.Name = "SendButton"
+sendButton.Size = UDim2.new(0, 60, 0, 25)
+sendButton.Position = UDim2.new(1, -70, 0, 5)
+sendButton.BackgroundColor3 = Color3.fromRGB(0, 120, 255)
+sendButton.Text = "Send"
+sendButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+sendButton.TextSize = 12
+sendButton.Font = Enum.Font.GothamBold
+sendButton.Parent = inputFrame
+
+local sendCorner = Instance.new("UICorner")
+sendCorner.CornerRadius = UDim.new(0, 4)
+sendCorner.Parent = sendButton
+
+-- Toggle Button (Top Right Corner)
+local toggleButton = Instance.new("TextButton")
+toggleButton.Name = "ChatToggle"
+toggleButton.Size = UDim2.new(0, 50, 0, 50)
+toggleButton.Position = UDim2.new(1, -70, 0, 20)
+toggleButton.BackgroundColor3 = Color3.fromRGB(0, 120, 255)
+toggleButton.Text = "💬"
+toggleButton.TextSize = 24
+toggleButton.Font = Enum.Font.GothamBold
+toggleButton.Parent = screenGui
+
+local toggleCorner = Instance.new("UICorner")
+toggleCorner.CornerRadius = UDim.new(1, 0) -- Circle
+toggleCorner.Parent = toggleButton
+
+local toggleStroke = Instance.new("UIStroke")
+toggleStroke.Color = Color3.fromRGB(255, 255, 255)
+toggleStroke.Thickness = 2
+toggleStroke.Parent = toggleButton
+
+-- Toggle shadow
+local toggleShadow = Instance.new("ImageLabel")
+toggleShadow.Name = "Shadow"
+toggleShadow.AnchorPoint = Vector2.new(0.5, 0.5)
+toggleShadow.BackgroundTransparency = 1
+toggleShadow.Position = UDim2.new(0.5, 0, 0.5, 4)
+toggleShadow.Size = UDim2.new(1, 20, 1, 20)
+toggleShadow.Image = "rbxassetid://1316045217"
+toggleShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+toggleShadow.ImageTransparency = 0.6
+toggleShadow.ScaleType = Enum.ScaleType.Slice
+toggleShadow.SliceCenter = Rect.new(10, 10, 118, 118)
+toggleShadow.ZIndex = -1
+toggleShadow.Parent = toggleButton
+
+-- Parent the ScreenGui to StarterGui
+screenGui.Parent = StarterGui
+
+print("✅ Custom Chat GUI created successfully!")
+print("📁 Check StarterGui > CustomChatGUI in Explorer")
+print("🔧 RemoteEvents created in ReplicatedStorage > ChatRemotes")
+
+-- CLIENT SCRIPT (LocalScript)
+local clientScript = Instance.new("LocalScript")
+clientScript.Name = "ChatClient"
+clientScript.Source = [[
+    local Players = game:GetService("Players")
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local TweenService = game:GetService("TweenService")
+    local UserInputService = game:GetService("UserInputService")
+    
+    local player = Players.LocalPlayer
+    local playerGui = player:WaitForChild("PlayerGui")
+    local screenGui = playerGui:WaitForChild("CustomChatGUI")
+    local chatFrame = screenGui:WaitForChild("ChatFrame")
+    local toggleButton = screenGui:WaitForChild("ChatToggle")
+    local scrollingFrame = chatFrame:WaitForChild("MessageContainer")
+    local textBox = chatFrame:WaitForChild("InputFrame"):WaitForChild("ChatInput")
+    local sendButton = chatFrame:WaitForChild("InputFrame"):WaitForChild("SendButton")
+    
+    local remotes = ReplicatedStorage:WaitForChild("ChatRemotes")
+    local sendMessageEvent = remotes:WaitForChild("SendMessage")
+    
+    local isVisible = true
+    
+    -- Toggle function
+    local function toggleChat()
+        isVisible = not isVisible
+        
+        local targetSize = isVisible and UDim2.new(0, 400, 0, 250) or UDim2.new(0, 0, 0, 0)
+        local targetTransparency = isVisible and 0.2 or 1
+        
+        local tween = TweenService:Create(chatFrame, TweenInfo.new(0.3, Enum.EasingStyle.Quad), {
+            Size = targetSize,
+            BackgroundTransparency = targetTransparency
+        })
+        tween:Play()
+        
+        -- Rotate toggle button
+        local rotationTween = TweenService:Create(toggleButton, TweenInfo.new(0.3), {
+            Rotation = isVisible and 0 or 45
+        })
+        rotationTween:Play()
+        
+        chatFrame.Visible = true
+        if not isVisible then
+            task.delay(0.3, function()
+                if not isVisible then chatFrame.Visible = false end
+            end)
+        end
+    end
+    
+    toggleButton.MouseButton1Click:Connect(toggleChat)
+    
+    -- Create message label
+    local function createMessageLabel(playerName, message, isLocalPlayer)
+        local messageFrame = Instance.new("Frame")
+        messageFrame.Size = UDim2.new(1, 0, 0, 0)
+        messageFrame.AutomaticSize = Enum.AutomaticSize.Y
+        messageFrame.BackgroundTransparency = 1
+        
+        local nameLabel = Instance.new("TextLabel")
+        nameLabel.Size = UDim2.new(0, 0, 0, 16)
+        nameLabel.AutomaticSize = Enum.AutomaticSize.X
+        nameLabel.BackgroundTransparency = 1
+        nameLabel.Text = playerName .. ":"
+        nameLabel.TextColor3 = isLocalPlayer and Color3.fromRGB(0, 255, 127) or Color3.fromRGB(0, 162, 255)
+        nameLabel.TextSize = 12
+        nameLabel.Font = Enum.Font.GothamBold
+        nameLabel.TextXAlignment = Enum.TextXAlignment.Left
+        nameLabel.Parent = messageFrame
+        
+        local messageLabel = Instance.new("TextLabel")
+        messageLabel.Size = UDim2.new(1, 0, 0, 0)
+        messageLabel.AutomaticSize = Enum.AutomaticSize.Y
+        messageLabel.Position = UDim2.new(0, 0, 0, 16)
+        messageLabel.BackgroundTransparency = 1
+        messageLabel.Text = message
+        messageLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        messageLabel.TextSize = 12
+        messageLabel.Font = Enum.Font.Gotham
+        messageLabel.TextXAlignment = Enum.TextXAlignment.Left
+        messageLabel.TextWrapped = true
+        messageLabel.Parent = messageFrame
+        
+        messageFrame.Parent = scrollingFrame
+        
+        -- Auto scroll to bottom
+        task.wait()
+        scrollingFrame.CanvasPosition = Vector2.new(0, scrollingFrame.AbsoluteCanvasSize.Y)
+        
+        -- Fade in animation
+        messageFrame.BackgroundTransparency = 1
+        local tween = TweenService:Create(messageFrame, TweenInfo.new(0.3), {BackgroundTransparency = 1})
+        tween:Play()
+    end
+    
+    -- Send message function
+    local function sendMessage()
+        local text = textBox.Text
+        if text:gsub("%s", "") ~= "" then
+            sendMessageEvent:FireServer(text)
+            textBox.Text = ""
+        end
+    end
+    
+    sendButton.MouseButton1Click:Connect(sendMessage)
+    
+    textBox.FocusLost:Connect(function(enterPressed)
+        if enterPressed then
+            sendMessage()
+        end
+    end)
+    
+    -- Listen for messages from server
+    sendMessageEvent.OnClientEvent:Connect(function(playerName, message)
+        createMessageLabel(playerName, message, playerName == player.Name)
+    end)
+    
+    -- Welcome message
+    createMessageLabel("System", "Welcome to Custom Chat! Press Enter to send.", false)
+]]
+
+-- SERVER SCRIPT (Script)
+local serverScript = Instance.new("Script")
+serverScript.Name = "ChatServer"
+serverScript.Source = [[
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local Players = game:GetService("Players")
+    
+    local remotes = ReplicatedStorage:WaitForChild("ChatRemotes")
+    local sendMessageEvent = remotes:WaitForChild("SendMessage")
+    
+    -- Handle incoming messages
+    sendMessageEvent.OnServerEvent:Connect(function(player, message)
+        -- Validate message
+        if typeof(message) ~= "string" then return end
+        if #message > 200 then message = string.sub(message, 1, 200) end
+        if message:gsub("%s", "") == "" then return end
+        
+        -- Filter text (basic)
+        local filteredMessage = message
+        -- You can add more filtering here
+        
+        -- Broadcast to all players
+        for _, targetPlayer in ipairs(Players:GetPlayers()) do
+            sendMessageEvent:FireClient(targetPlayer, player.Name, filteredMessage)
+        end
+    end)
+    
+    print("✅ Chat server initialized")
+]]
+
+-- Parent scripts to appropriate locations
+clientScript.Parent = screenGui
+serverScript.Parent = ReplicatedStorage
+
+print("📜 Client and Server scripts created!")
+print("🎮 Ready to use! Join the game to test.")
