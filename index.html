@@ -479,24 +479,24 @@
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card group relative overflow-hidden rounded-2xl glass-panel border border-white/10 cursor-pointer" data-category="ui" onclick="openModal('project2')">
-                    <div class="aspect-video bg-gradient-to-br from-pink-600/20 to-orange-600/20 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center text-6xl">🎨</div>
-                        <div class="project-overlay absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium">View Details</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="px-2 py-1 rounded text-xs bg-pink-500/20 text-pink-400">UI Design</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-pink-400 transition-colors">Military-Style UI</h3>
-                        <p class="text-gray-400 text-sm mb-4">Military UI, Made In Figma, Adding More Features Soon.</p>
-                        <div class="flex gap-2 text-xs text-gray-500">
-                            <span>Figma</span>
-                        </div>
-                    </div>
-                </div>
+<div class="project-card group relative overflow-hidden rounded-2xl glass-panel border border-white/10 cursor-pointer" data-category="ui" onclick="openModal('project2')">
+    <div class="aspect-video relative overflow-hidden">
+        <img src="military_ui.png" alt="Military-Style UI" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="project-overlay absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+            <span class="px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium">View Details</span>
+        </div>
+    </div>
+    <div class="p-6">
+        <div class="flex items-center gap-2 mb-2">
+            <span class="px-2 py-1 rounded text-xs bg-pink-500/20 text-pink-400">UI Design</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 group-hover:text-pink-400 transition-colors">Military-Style UI</h3>
+        <p class="text-gray-400 text-sm mb-4">Military UI, Made In Figma, Adding More Features Soon.</p>
+        <div class="flex gap-2 text-xs text-gray-500">
+            <span>Figma</span>
+        </div>
+    </div>
+</div>
 
                 <!-- Project 3 -->
                 <div class="project-card group relative overflow-hidden rounded-2xl glass-panel border border-white/10 cursor-pointer" data-category="scripting" onclick="openModal('project3')">
@@ -785,14 +785,14 @@
                 gameUrl: 'https://www.roblox.com/games/70829226007706/Working-NPCs'
             },
             'project2': {
-                title: 'Military-Style UI',
-                category: 'UI Design',
-                description: 'Military UI, Made In Figma, Adding More Features Soon. A tactical interface designed for military-themed Roblox games with a clean, professional aesthetic.',
-                tech: ['Figma', 'Roblox Studio', 'TweenService'],
-                features: ['Tactical HUD Layout', 'Health & Ammo Indicators', 'Minimap Integration', 'Team Communication Panel'],
-                image: null,
-                gameUrl: null
-            },
+    title: 'Military-Style UI',
+    category: 'UI Design',
+    description: 'Military UI, Made In Figma, Adding More Features Soon. A tactical interface designed for military-themed Roblox games with a clean, professional aesthetic.',
+    tech: ['Figma', 'Roblox Studio', 'TweenService'],
+    features: ['Tactical HUD Layout', 'Health & Ammo Indicators', 'Minimap Integration', 'Team Communication Panel'],
+    image: 'military_ui.png',
+    gameUrl: null
+},
             'project3': {
                 title: 'Inventory System',
                 category: 'Scripting',
