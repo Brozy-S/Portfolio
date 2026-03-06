@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevName | Roblox Scripter & UI Designer</title>
+    <title>Brozy | Roblox Scripter & UI Designer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
@@ -15,54 +18,76 @@
             color: #e2e8f0;
             overflow-x: hidden;
         }
-        h1, h2, h3, h4 {
+
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: 'Space Grotesk', sans-serif;
         }
+
         .gradient-text {
             background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
         .glass-panel {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         .code-block {
             background: #1e1e2e;
             border-left: 3px solid #3b82f6;
             font-family: 'Fira Code', monospace;
         }
+
         .grid-pattern {
-            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
             background-size: 40px 40px;
         }
+
         .floating {
             animation: float 6s ease-in-out infinite;
         }
+
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
+
         .skill-bar {
             transition: width 1.5s ease-out;
         }
+
         .project-card:hover .project-overlay {
             opacity: 1;
         }
+
         .cursor-glow {
             width: 300px;
             height: 300px;
-            background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
             position: fixed;
             pointer-events: none;
             z-index: 0;
             transform: translate(-50%, -50%);
         }
+
         .nav-link {
             position: relative;
         }
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -73,22 +98,27 @@
             background: linear-gradient(90deg, #3b82f6, #8b5cf6);
             transition: width 0.3s;
         }
+
         .nav-link:hover::after {
             width: 100%;
         }
+
         .tab-active {
             background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             color: white;
         }
+
         .hide-scrollbar::-webkit-scrollbar {
             display: none;
         }
+
         .hide-scrollbar {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
     </style>
 </head>
+
 <body class="antialiased selection:bg-blue-500 selection:text-white">
 
     <!-- Cursor Glow Effect -->
@@ -99,80 +129,110 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">D</div>
-                    <span class="font-bold text-xl tracking-tight">DevName</span>
+                    <div
+                        class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                        D</div>
+                    <span class="font-bold text-xl tracking-tight">Brozy</span>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#about" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">About</a>
-                    <a href="#skills" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Skills</a>
-                    <a href="#work" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Projects</a>
-                    <a href="#services" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Services</a>
-                    <a href="#contact" class="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-sm font-medium transition-all border border-white/10">Contact</a>
+                    <a href="#about"
+                        class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">About</a>
+                    <a href="#skills"
+                        class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Skills</a>
+                    <a href="#work"
+                        class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Projects</a>
+                    <a href="#services"
+                        class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Services</a>
+                    <a href="#contact"
+                        class="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-sm font-medium transition-all border border-white/10">Contact</a>
                 </div>
-                <button class="md:hidden text-gray-300" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <button class="md:hidden text-gray-300"
+                    onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
                 </button>
             </div>
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-white/5">
             <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-md">About</a>
-                <a href="#skills" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-md">Skills</a>
-                <a href="#work" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-md">Projects</a>
-                <a href="#services" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-md">Services</a>
-                <a href="#contact" class="block px-3 py-2 text-base font-medium text-blue-400 hover:text-blue-300">Contact Me</a>
+                <a href="#about"
+                    class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-md">About</a>
+                <a href="#skills"
+                    class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-md">Skills</a>
+                <a href="#work"
+                    class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-md">Projects</a>
+                <a href="#services"
+                    class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-md">Services</a>
+                <a href="#contact"
+                    class="block px-3 py-2 text-base font-medium text-blue-400 hover:text-blue-300">Contact Me</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden grid-pattern">
-        <div class="absolute inset-0 bg-gradient-to-b from-blue-900/20 via-transparent to-transparent pointer-events-none"></div>
-        
+        <div
+            class="absolute inset-0 bg-gradient-to-b from-blue-900/20 via-transparent to-transparent pointer-events-none">
+        </div>
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-8 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium animate-fade-in">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium animate-fade-in">
                         <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
                         Available for Commissions
                     </div>
-                    
+
                     <h1 class="text-5xl md:text-7xl font-bold leading-tight">
                         Crafting <span class="gradient-text">Digital</span><br>
                         Experiences in<br>
                         <span class="text-white">Roblox</span>
                     </h1>
-                    
+
                     <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                        Specialized in <span class="text-blue-400 font-semibold">Lua Scripting</span> & <span class="text-purple-400 font-semibold">UI/UX Design</span>. 
+                        Specialized in <span class="text-blue-400 font-semibold">Lua Scripting</span> & <span
+                            class="text-purple-400 font-semibold">UI/UX Design</span>.
                         Transforming concepts into immersive, high-performance game interfaces and mechanics.
                     </p>
-                    
+
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="#work" class="px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all transform hover:-translate-y-1">
+                        <a href="#work"
+                            class="px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all transform hover:-translate-y-1">
                             View Projects
                         </a>
-                        <a href="#contact" class="px-8 py-4 rounded-full border border-white/20 text-white font-semibold hover:bg-white/5 transition-all">
+                        <a href="#contact"
+                            class="px-8 py-4 rounded-full border border-white/20 text-white font-semibold hover:bg-white/5 transition-all">
                             Get in Touch
                         </a>
                     </div>
 
                     <div class="flex items-center gap-6 justify-center lg:justify-start text-sm text-gray-500 pt-4">
                         <div class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            <span>5+ Years Experience</span>
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>5+ Month Experince</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            <span>50+ Projects</span>
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span>2+ Projects</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="relative floating hidden lg:block">
                     <div class="relative w-full aspect-square max-w-lg mx-auto">
-                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/30 to-purple-600/30 rounded-3xl blur-3xl"></div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-blue-500/30 to-purple-600/30 rounded-3xl blur-3xl">
+                        </div>
                         <div class="relative glass-panel rounded-3xl p-6 border border-white/10 shadow-2xl">
                             <div class="flex items-center gap-2 mb-4 pb-4 border-b border-white/10">
                                 <div class="w-3 h-3 rounded-full bg-red-500"></div>
@@ -219,15 +279,15 @@
                     <div class="text-sm text-gray-500 uppercase tracking-wider">Years Active</div>
                 </div>
                 <div class="stat-item">
-                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">50+</div>
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">2+</div>
                     <div class="text-sm text-gray-500 uppercase tracking-wider">Projects</div>
                 </div>
                 <div class="stat-item">
-                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">20M+</div>
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">0+</div>
                     <div class="text-sm text-gray-500 uppercase tracking-wider">Visits Generated</div>
                 </div>
                 <div class="stat-item">
-                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">100%</div>
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">83%</div>
                     <div class="text-sm text-gray-500 uppercase tracking-wider">Client Satisfaction</div>
                 </div>
             </div>
@@ -241,12 +301,15 @@
                 <div class="space-y-6">
                     <h2 class="text-4xl md:text-5xl font-bold">About <span class="gradient-text">Me</span></h2>
                     <p class="text-gray-400 text-lg leading-relaxed">
-                        I'm a passionate Roblox developer specializing in creating seamless user experiences and robust game systems. With over 5 years of experience in Lua scripting and UI design, I've helped numerous games achieve professional polish and engaging gameplay mechanics.
+                        I'm a passionate Roblox developer specializing in creating seamless user experiences. With over
+                        5 Months of experience in Lua scripting and 1+ Years Of UI designing, I've helped
+                        numerous games achieve professional polish and engaging gameplay mechanics.
                     </p>
                     <p class="text-gray-400 text-lg leading-relaxed">
-                        My approach combines technical precision with creative design, ensuring that every interface is not only visually stunning but also optimized for performance across all devices.
+                        My approach combines technical precision with creative design, ensuring that every interface is
+                        not only visually stunning but also optimized for performance across all devices.
                     </p>
-                    
+
                     <div class="grid grid-cols-2 gap-4 pt-4">
                         <div class="glass-panel p-4 rounded-xl border border-white/10">
                             <div class="text-blue-400 font-semibold mb-1">Scripting</div>
@@ -257,46 +320,62 @@
                             <div class="text-sm text-gray-500">Figma, Studio UI, Tweening</div>
                         </div>
                         <div class="glass-panel p-4 rounded-xl border border-white/10">
-                            <div class="text-pink-400 font-semibold mb-1">Tools</div>
-                            <div class="text-sm text-gray-500">Rojo, VS Code, Git, Wally</div>
-                        </div>
-                        <div class="glass-panel p-4 rounded-xl border border-white/10">
                             <div class="text-green-400 font-semibold mb-1">Systems</div>
                             <div class="text-sm text-gray-500">DataStores, Networking, AI</div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="relative">
-                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl blur-2xl opacity-20"></div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl blur-2xl opacity-20">
+                    </div>
                     <div class="relative glass-panel rounded-3xl p-8 border border-white/10">
                         <h3 class="text-2xl font-bold mb-6">What I Do Best</h3>
                         <div class="space-y-6">
                             <div class="flex gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                    </svg>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-white mb-1">Clean Code Architecture</h4>
-                                    <p class="text-sm text-gray-400">Modular, scalable scripting using Knit and modern Luau patterns</p>
+                                    <p class="text-sm text-gray-400">Modular, scalable scripting using Knit and modern
+                                        Luau patterns</p>
                                 </div>
                             </div>
                             <div class="flex gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                                    </svg>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-white mb-1">Pixel-Perfect UI</h4>
-                                    <p class="text-sm text-gray-400">Intuitive interfaces with smooth animations and responsive layouts</p>
+                                    <p class="text-sm text-gray-400">Intuitive interfaces with smooth animations and
+                                        responsive layouts</p>
                                 </div>
                             </div>
                             <div class="flex gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-white mb-1">Performance Optimization</h4>
-                                    <p class="text-sm text-gray-400">Efficient code that runs smoothly on mobile and low-end devices</p>
+                                    <p class="text-sm text-gray-400">Efficient code that runs smoothly on mobile and
+                                        low-end devices</p>
                                 </div>
                             </div>
                         </div>
@@ -311,8 +390,10 @@
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/10 to-transparent"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Technical <span class="gradient-text">Expertise</span></h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">Proficient in modern Roblox development tools and practices</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Technical <span class="gradient-text">Expertise</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Proficient in modern Roblox development tools and practices
+                </p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -325,19 +406,21 @@
                         <div>
                             <div class="flex justify-between mb-1 text-sm">
                                 <span class="text-gray-300">Lua/Luau</span>
-                                <span class="text-gray-500">95%</span>
+                                <span class="text-gray-500">32%</span>
                             </div>
                             <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                <div class="skill-bar h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full" style="width: 0%" data-width="95%"></div>
+                                <div class="skill-bar h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"
+                                    style="width: 0%" data-width="%"></div>
                             </div>
                         </div>
                         <div>
                             <div class="flex justify-between mb-1 text-sm">
                                 <span class="text-gray-300">OOP & Module Scripts</span>
-                                <span class="text-gray-500">90%</span>
+                                <span class="text-gray-500">65%</span>
                             </div>
                             <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                <div class="skill-bar h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full" style="width: 0%" data-width="90%"></div>
+                                <div class="skill-bar h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"
+                                    style="width: 0%" data-width="65%"></div>
                             </div>
                         </div>
                         <div>
@@ -346,16 +429,18 @@
                                 <span class="text-gray-500">85%</span>
                             </div>
                             <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                <div class="skill-bar h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full" style="width: 0%" data-width="85%"></div>
+                                <div class="skill-bar h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"
+                                    style="width: 0%" data-width="85%"></div>
                             </div>
                         </div>
                         <div>
                             <div class="flex justify-between mb-1 text-sm">
                                 <span class="text-gray-300">Animation & Tweening</span>
-                                <span class="text-gray-500">88%</span>
+                                <span class="text-gray-500">98%</span>
                             </div>
                             <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                <div class="skill-bar h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full" style="width: 0%" data-width="88%"></div>
+                                <div class="skill-bar h-full bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"
+                                    style="width: 0%" data-width="98%"></div>
                             </div>
                         </div>
                     </div>
@@ -370,10 +455,11 @@
                         <div>
                             <div class="flex justify-between mb-1 text-sm">
                                 <span class="text-gray-300">Interface Design</span>
-                                <span class="text-gray-500">92%</span>
+                                <span class="text-gray-500">72%</span>
                             </div>
                             <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                <div class="skill-bar h-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full" style="width: 0%" data-width="92%"></div>
+                                <div class="skill-bar h-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full"
+                                    style="width: 0%" data-width="72%"></div>
                             </div>
                         </div>
                         <div>
@@ -382,7 +468,8 @@
                                 <span class="text-gray-500">85%</span>
                             </div>
                             <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                <div class="skill-bar h-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full" style="width: 0%" data-width="85%"></div>
+                                <div class="skill-bar h-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full"
+                                    style="width: 0%" data-width="85%"></div>
                             </div>
                         </div>
                         <div>
@@ -391,16 +478,18 @@
                                 <span class="text-gray-500">90%</span>
                             </div>
                             <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                <div class="skill-bar h-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full" style="width: 0%" data-width="90%"></div>
+                                <div class="skill-bar h-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full"
+                                    style="width: 0%" data-width="90%"></div>
                             </div>
                         </div>
                         <div>
                             <div class="flex justify-between mb-1 text-sm">
                                 <span class="text-gray-300">Iconography & Assets</span>
-                                <span class="text-gray-500">80%</span>
+                                <span class="text-gray-500">60%</span>
                             </div>
                             <div class="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                <div class="skill-bar h-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full" style="width: 0%" data-width="80%"></div>
+                                <div class="skill-bar h-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full"
+                                    style="width: 0%" data-width="60%"></div>
                             </div>
                         </div>
                     </div>
@@ -413,25 +502,39 @@
     <section id="work" class="py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Featured <span class="gradient-text">Projects</span></h2>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Featured <span class="gradient-text">Projects</span>
+                </h2>
                 <p class="text-gray-400 mb-8">A selection of my recent work</p>
-                
+
                 <!-- Filter Tabs -->
                 <div class="flex flex-wrap justify-center gap-2 mb-12">
-                    <button onclick="filterProjects('all')" class="filter-btn tab-active px-6 py-2 rounded-full text-sm font-medium transition-all" data-filter="all">All Work</button>
-                    <button onclick="filterProjects('ui')" class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all bg-white/5 text-gray-400 hover:bg-white/10" data-filter="ui">UI Design</button>
-                    <button onclick="filterProjects('scripting')" class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all bg-white/5 text-gray-400 hover:bg-white/10" data-filter="scripting">Scripting</button>
-                    <button onclick="filterProjects('full')" class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all bg-white/5 text-gray-400 hover:bg-white/10" data-filter="full">Full Projects</button>
+                    <button onclick="filterProjects('all')"
+                        class="filter-btn tab-active px-6 py-2 rounded-full text-sm font-medium transition-all"
+                        data-filter="all">All Work</button>
+                    <button onclick="filterProjects('ui')"
+                        class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all bg-white/5 text-gray-400 hover:bg-white/10"
+                        data-filter="ui">UI Design</button>
+                    <button onclick="filterProjects('scripting')"
+                        class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all bg-white/5 text-gray-400 hover:bg-white/10"
+                        data-filter="scripting">Scripting</button>
+                    <button onclick="filterProjects('full')"
+                        class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all bg-white/5 text-gray-400 hover:bg-white/10"
+                        data-filter="full">Full Projects</button>
                 </div>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
                 <!-- Project 1 -->
-                <div class="project-card group relative overflow-hidden rounded-2xl glass-panel border border-white/10 cursor-pointer" data-category="full" onclick="openModal('project1')">
-                    <div class="aspect-video bg-gradient-to-br from-blue-600/20 to-purple-600/20 relative overflow-hidden">
+                <div class="project-card group relative overflow-hidden rounded-2xl glass-panel border border-white/10 cursor-pointer"
+                    data-category="full" onclick="openModal('project1')">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-blue-600/20 to-purple-600/20 relative overflow-hidden">
                         <div class="absolute inset-0 flex items-center justify-center text-6xl">🎮</div>
-                        <div class="project-overlay absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium">View Details</span>
+                        <div
+                            class="project-overlay absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                            <span
+                                class="px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium">View
+                                Details</span>
                         </div>
                     </div>
                     <div class="p-6">
@@ -439,134 +542,68 @@
                             <span class="px-2 py-1 rounded text-xs bg-blue-500/20 text-blue-400">Full Project</span>
                             <span class="px-2 py-1 rounded text-xs bg-purple-500/20 text-purple-400">UI/Scripting</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">RPG Battle System</h3>
-                        <p class="text-gray-400 text-sm mb-4">Complete turn-based combat system with custom UI, animations, and multiplayer synchronization.</p>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">Working NPC's
+                            [BETA]
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4">A Game Where You And Others Fight For The Best plot In The
+                            Game, By Buying Tbales, NPC's & Foods.</p>
                         <div class="flex gap-2 text-xs text-gray-500">
                             <span>Lua</span>
                             <span>•</span>
-                            <span>Roact</span>
-                            <span>•</span>
-                            <span>Knit</span>
+                            <span>Figma</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card group relative overflow-hidden rounded-2xl glass-panel border border-white/10 cursor-pointer" data-category="ui" onclick="openModal('project2')">
-                    <div class="aspect-video bg-gradient-to-br from-pink-600/20 to-orange-600/20 relative overflow-hidden">
+                <div class="project-card group relative overflow-hidden rounded-2xl glass-panel border border-white/10 cursor-pointer"
+                    data-category="ui" onclick="openModal('project2')">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-pink-600/20 to-orange-600/20 relative overflow-hidden">
                         <div class="absolute inset-0 flex items-center justify-center text-6xl">🎨</div>
-                        <div class="project-overlay absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium">View Details</span>
+                        <div
+                            class="project-overlay absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                            <span
+                                class="px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium">View
+                                Details</span>
                         </div>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-2">
                             <span class="px-2 py-1 rounded text-xs bg-pink-500/20 text-pink-400">UI Design</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-pink-400 transition-colors">Futuristic HUD</h3>
-                        <p class="text-gray-400 text-sm mb-4">Sci-fi inspired heads-up display with health bars, minimap, and dynamic quest tracking.</p>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-pink-400 transition-colors">Military-Style UI
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4">Military UI, Made In Figma, Adding More Features Soon.</p>
                         <div class="flex gap-2 text-xs text-gray-500">
                             <span>Figma</span>
-                            <span>•</span>
-                            <span>Studio</span>
-                            <span>•</span>
-                            <span>Tweening</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="project-card group relative overflow-hidden rounded-2xl glass-panel border border-white/10 cursor-pointer" data-category="scripting" onclick="openModal('project3')">
-                    <div class="aspect-video bg-gradient-to-br from-green-600/20 to-teal-600/20 relative overflow-hidden">
+                <div class="project-card group relative overflow-hidden rounded-2xl glass-panel border border-white/10 cursor-pointer"
+                    data-category="scripting" onclick="openModal('project3')">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-green-600/20 to-teal-600/20 relative overflow-hidden">
                         <div class="absolute inset-0 flex items-center justify-center text-6xl">⚙️</div>
-                        <div class="project-overlay absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium">View Details</span>
+                        <div
+                            class="project-overlay absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                            <span
+                                class="px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium">View
+                                Details</span>
                         </div>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-2">
                             <span class="px-2 py-1 rounded text-xs bg-green-500/20 text-green-400">Scripting</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-green-400 transition-colors">Inventory System</h3>
-                        <p class="text-gray-400 text-sm mb-4">Advanced inventory with drag-drop, item stacking, crafting integration, and data persistence.</p>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-green-400 transition-colors">Inventory System
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4">Advanced inventory with drag-drop, item stacking, crafting
+                            integration, and data persistence.</p>
                         <div class="flex gap-2 text-xs text-gray-500">
                             <span>Luau</span>
-                            <span>•</span>
-                            <span>DataStore2</span>
-                            <span>•</span>
-                            <span>OOP</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-card group relative overflow-hidden rounded-2xl glass-panel border border-white/10 cursor-pointer" data-category="ui" onclick="openModal('project4')">
-                    <div class="aspect-video bg-gradient-to-br from-yellow-600/20 to-red-600/20 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center text-6xl">🏪</div>
-                        <div class="project-overlay absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium">View Details</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="px-2 py-1 rounded text-xs bg-yellow-500/20 text-yellow-400">UI Design</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-yellow-400 transition-colors">Game Shop Interface</h3>
-                        <p class="text-gray-400 text-sm mb-4">Premium shop UI with category filtering, purchase animations, and Robux integration.</p>
-                        <div class="flex gap-2 text-xs text-gray-500">
-                            <span>UI Layout</span>
-                            <span>•</span>
-                            <span>Animations</span>
-                            <span>•</span>
-                            <span>Monetization</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="project-card group relative overflow-hidden rounded-2xl glass-panel border border-white/10 cursor-pointer" data-category="scripting" onclick="openModal('project5')">
-                    <div class="aspect-video bg-gradient-to-br from-indigo-600/20 to-blue-600/20 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center text-6xl">🤖</div>
-                        <div class="project-overlay absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium">View Details</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="px-2 py-1 rounded text-xs bg-indigo-500/20 text-indigo-400">Scripting</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-indigo-400 transition-colors">NPC AI System</h3>
-                        <p class="text-gray-400 text-sm mb-4">Pathfinding NPCs with behavior trees, dialogue systems, and quest integration.</p>
-                        <div class="flex gap-2 text-xs text-gray-500">
-                            <span>Pathfinding</span>
-                            <span>•</span>
-                            <span>AI</span>
-                            <span>•</span>
-                            <span>Dialogue</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="project-card group relative overflow-hidden rounded-2xl glass-panel border border-white/10 cursor-pointer" data-category="full" onclick="openModal('project6')">
-                    <div class="aspect-video bg-gradient-to-br from-purple-600/20 to-pink-600/20 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center text-6xl">🏆</div>
-                        <div class="project-overlay absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium">View Details</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="px-2 py-1 rounded text-xs bg-purple-500/20 text-purple-400">Full Project</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">Tycoon Framework</h3>
-                        <p class="text-gray-400 text-sm mb-4">Complete tycoon game template with progression systems, upgrades, and save/load functionality.</p>
-                        <div class="flex gap-2 text-xs text-gray-500">
-                            <span>Framework</span>
-                            <span>•</span>
-                            <span>Systems</span>
-                            <span>•</span>
-                            <span>Template</span>
                         </div>
                     </div>
                 </div>
@@ -584,87 +621,143 @@
 
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <!-- Basic -->
-                <div class="glass-panel rounded-2xl p-8 border border-white/10 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:-translate-y-2">
+                <div
+                    class="glass-panel rounded-2xl p-8 border border-white/10 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:-translate-y-2">
                     <div class="text-blue-400 font-semibold mb-2">UI Design</div>
-                    <div class="text-3xl font-bold mb-6">$150<span class="text-lg text-gray-500 font-normal">+</span></div>
+                    <div class="text-3xl font-bold mb-6">$15<span class="text-lg text-gray-500 font-normal">+</span>
+                    </div>
                     <ul class="space-y-3 mb-8 text-gray-400 text-sm">
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
                             Custom Interface Design
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
                             3 Revision Rounds
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
                             Source Files Included
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
                             Basic Animations
                         </li>
                     </ul>
-                    <button onclick="selectService('ui')" class="w-full py-3 rounded-full border border-blue-500/50 text-blue-400 font-semibold hover:bg-blue-500/10 transition-all">Select Package</button>
+                    <button onclick="selectService('ui')"
+                        class="w-full py-3 rounded-full border border-blue-500/50 text-blue-400 font-semibold hover:bg-blue-500/10 transition-all">Select
+                        Package</button>
                 </div>
 
                 <!-- Pro -->
-                <div class="glass-panel rounded-2xl p-8 border border-purple-500/50 relative overflow-hidden transform scale-105 shadow-xl shadow-purple-500/10">
-                    <div class="absolute top-0 right-0 bg-gradient-to-bl from-purple-500 to-blue-500 text-white text-xs font-bold px-4 py-1 rounded-bl-lg">POPULAR</div>
+                <div
+                    class="glass-panel rounded-2xl p-8 border border-purple-500/50 relative overflow-hidden transform scale-105 shadow-xl shadow-purple-500/10">
+                    <div
+                        class="absolute top-0 right-0 bg-gradient-to-bl from-purple-500 to-blue-500 text-white text-xs font-bold px-4 py-1 rounded-bl-lg">
+                        POPULAR</div>
                     <div class="text-purple-400 font-semibold mb-2">Scripting</div>
-                    <div class="text-3xl font-bold mb-6">$300<span class="text-lg text-gray-500 font-normal">+</span></div>
+                    <div class="text-3xl font-bold mb-6">$30<span class="text-lg text-gray-500 font-normal">+</span>
+                    </div>
                     <ul class="space-y-3 mb-8 text-gray-400 text-sm">
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
                             Custom System Development
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
                             DataStore Integration
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
                             Optimization & Debugging
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
                             Documentation
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
                             Priority Support
                         </li>
                     </ul>
-                    <button onclick="selectService('scripting')" class="w-full py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all">Select Package</button>
+                    <button onclick="selectService('scripting')"
+                        class="w-full py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all">Select
+                        Package</button>
                 </div>
 
                 <!-- Enterprise -->
-                <div class="glass-panel rounded-2xl p-8 border border-white/10 hover:border-pink-500/50 transition-all duration-300 hover:transform hover:-translate-y-2">
+                <div
+                    class="glass-panel rounded-2xl p-8 border border-white/10 hover:border-pink-500/50 transition-all duration-300 hover:transform hover:-translate-y-2">
                     <div class="text-pink-400 font-semibold mb-2">Full Game Dev</div>
-                    <div class="text-3xl font-bold mb-6">$800<span class="text-lg text-gray-500 font-normal">+</span></div>
+                    <div class="text-3xl font-bold mb-6">$80<span class="text-lg text-gray-500 font-normal">+</span>
+                    </div>
                     <ul class="space-y-3 mb-8 text-gray-400 text-sm">
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
                             UI + Scripting Bundle
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
                             Game Mechanics Design
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
                             Asset Integration
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
                             Post-Launch Support
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
                             Project Management
                         </li>
                     </ul>
-                    <button onclick="selectService('full')" class="w-full py-3 rounded-full border border-pink-500/50 text-pink-400 font-semibold hover:bg-pink-500/10 transition-all">Select Package</button>
+                    <button onclick="selectService('full')"
+                        class="w-full py-3 rounded-full border border-pink-500/50 text-pink-400 font-semibold hover:bg-pink-500/10 transition-all">Select
+                        Package</button>
                 </div>
             </div>
         </div>
@@ -672,11 +765,15 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-24 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/10 to-transparent pointer-events-none"></div>
+        <div
+            class="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/10 to-transparent pointer-events-none">
+        </div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Let's Build <span class="gradient-text">Together</span></h2>
-                <p class="text-gray-400">Have a project in mind? Let's discuss how I can help bring your vision to life.</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Let's Build <span class="gradient-text">Together</span>
+                </h2>
+                <p class="text-gray-400">Have a project in mind? Let's discuss how I can help bring your vision to life.
+                </p>
             </div>
 
             <div class="glass-panel rounded-3xl p-8 md:p-12 border border-white/10">
@@ -684,17 +781,22 @@
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-sm font-medium text-gray-400 mb-2">Your Name</label>
-                            <input type="text" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all" placeholder="John Doe">
+                            <input type="text" required
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all"
+                                placeholder="John Doe">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-400 mb-2">Discord or Email</label>
-                            <input type="text" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all" placeholder="user#1234 or email@example.com">
+                            <input type="text" required
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all"
+                                placeholder="user#1234 or email@example.com">
                         </div>
                     </div>
-                    
+
                     <div>
                         <label class="block text-sm font-medium text-gray-400 mb-2">Project Type</label>
-                        <select id="service-select" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all">
+                        <select id="service-select"
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all">
                             <option value="" class="bg-gray-900">Select a service...</option>
                             <option value="ui" class="bg-gray-900">UI Design ($150+)</option>
                             <option value="scripting" class="bg-gray-900">Scripting ($300+)</option>
@@ -705,26 +807,36 @@
 
                     <div>
                         <label class="block text-sm font-medium text-gray-400 mb-2">Project Details</label>
-                        <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all resize-none" placeholder="Describe your project, timeline, and any specific requirements..."></textarea>
+                        <textarea rows="4" required
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all resize-none"
+                            placeholder="Describe your project, timeline, and any specific requirements..."></textarea>
                     </div>
 
-                    <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all transform hover:-translate-y-1">
+                    <button type="submit"
+                        class="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all transform hover:-translate-y-1">
                         Send Message
                     </button>
                 </form>
 
-                <div class="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                <div
+                    class="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
                     <div class="flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                         Usually responds within 24 hours
                     </div>
                     <div class="flex gap-6">
                         <a href="#" class="hover:text-white transition-colors flex items-center gap-2">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
-                            Discord: DevName#1234
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z" />
+                            </svg>
+                            Discord: Brozy
                         </a>
                         <a href="#" class="hover:text-white transition-colors flex items-center gap-2">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                            </svg>
                             GitHub
                         </a>
                     </div>
@@ -742,10 +854,15 @@
     <div id="project-modal" class="fixed inset-0 z-50 hidden">
         <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" onclick="closeModal()"></div>
         <div class="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
-            <div class="glass-panel max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-3xl border border-white/10 pointer-events-auto transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
+            <div class="glass-panel max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-3xl border border-white/10 pointer-events-auto transform scale-95 opacity-0 transition-all duration-300"
+                id="modal-content">
                 <div class="relative">
-                    <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                    <button onclick="closeModal()"
+                        class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors z-10">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
                     </button>
                     <div id="modal-body" class="p-8">
                         <!-- Dynamic content -->
@@ -798,9 +915,9 @@
         function filterProjects(category) {
             const buttons = document.querySelectorAll('.filter-btn');
             const projects = document.querySelectorAll('.project-card');
-            
+
             buttons.forEach(btn => {
-                if(btn.getAttribute('data-filter') === category) {
+                if (btn.getAttribute('data-filter') === category) {
                     btn.classList.add('tab-active');
                     btn.classList.remove('bg-white/5', 'text-gray-400');
                 } else {
@@ -810,10 +927,10 @@
             });
 
             projects.forEach(project => {
-                if(category === 'all' || project.getAttribute('data-category') === category) {
-                    gsap.to(project, {opacity: 1, scale: 1, duration: 0.4, display: 'block'});
+                if (category === 'all' || project.getAttribute('data-category') === category) {
+                    gsap.to(project, { opacity: 1, scale: 1, duration: 0.4, display: 'block' });
                 } else {
-                    gsap.to(project, {opacity: 0, scale: 0.9, duration: 0.4, display: 'none'});
+                    gsap.to(project, { opacity: 0, scale: 0.9, duration: 0.4, display: 'none' });
                 }
             });
         }
@@ -914,10 +1031,10 @@
         function closeModal() {
             const modal = document.getElementById('project-modal');
             const content = document.getElementById('modal-content');
-            
+
             content.classList.remove('scale-100', 'opacity-100');
             content.classList.add('scale-95', 'opacity-0');
-            
+
             setTimeout(() => {
                 modal.classList.add('hidden');
             }, 300);
@@ -926,18 +1043,18 @@
         function selectService(type) {
             const select = document.getElementById('service-select');
             select.value = type;
-            document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         }
 
         function handleSubmit(e) {
             e.preventDefault();
             const btn = e.target.querySelector('button[type="submit"]');
             const originalText = btn.innerText;
-            
+
             btn.innerText = 'Message Sent!';
             btn.classList.add('bg-green-600');
             btn.classList.remove('from-blue-600', 'to-purple-600');
-            
+
             setTimeout(() => {
                 btn.innerText = originalText;
                 btn.classList.remove('bg-green-600');
@@ -949,7 +1066,7 @@
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
-            if(window.scrollY > 50) {
+            if (window.scrollY > 50) {
                 nav.classList.add('bg-black/80', 'backdrop-blur-md');
             } else {
                 nav.classList.remove('bg-black/80', 'backdrop-blur-md');
@@ -958,8 +1075,9 @@
 
         // Close modal on escape key
         document.addEventListener('keydown', (e) => {
-            if(e.key === 'Escape') closeModal();
+            if (e.key === 'Escape') closeModal();
         });
     </script>
 </body>
+
 </html>
