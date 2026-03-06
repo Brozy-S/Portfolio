@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brozy | Roblox Scripter & UI Designer</title>
-    <script src="https://cdn.tailwindcss.com "></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js "></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -109,6 +109,7 @@
 
         .filter-btn { position: relative; overflow: hidden; }
     </style>
+<base target="_blank">
 </head>
 
 <body class="antialiased selection:bg-blue-500 selection:text-white">
@@ -183,7 +184,7 @@
                             <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                             </svg>
-                            <span>5+ Month Experince</span>
+                            <span>5+ Month Experience</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -239,14 +240,14 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 <div class="stat-item">
                     <div class="text-3xl md:text-4xl font-bold text-white mb-1">5+</div>
-                    <div class="text-sm text-gray-500 uppercase tracking-wider">Years Active</div>
+                    <div class="text-sm text-gray-500 uppercase tracking-wider">Months Active</div>
                 </div>
                 <div class="stat-item">
                     <div class="text-3xl md:text-4xl font-bold text-white mb-1">2+</div>
                     <div class="text-sm text-gray-500 uppercase tracking-wider">Projects</div>
                 </div>
                 <div class="stat-item">
-                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">0+</div>
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">1K+</div>
                     <div class="text-sm text-gray-500 uppercase tracking-wider">Visits Generated</div>
                 </div>
                 <div class="stat-item">
@@ -454,10 +455,10 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
-                <!-- Project 1 -->
+                <!-- Project 1 - Working NPCs -->
                 <div class="project-card group relative overflow-hidden rounded-2xl glass-panel border border-white/10 cursor-pointer" data-category="full" onclick="openModal('project1')">
-                    <div class="aspect-video bg-gradient-to-br from-blue-600/20 to-purple-600/20 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center text-6xl">🎮</div>
+                    <div class="aspect-video relative overflow-hidden">
+                        <img src="working_npcs_thumbnail.png" alt="Working NPCs Game Thumbnail" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div class="project-overlay absolute inset-0 bg-black/80 opacity-0 transition-opacity duration-300 flex items-center justify-center">
                             <span class="px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-medium">View Details</span>
                         </div>
@@ -468,7 +469,7 @@
                             <span class="px-2 py-1 rounded text-xs bg-purple-500/20 text-purple-400">UI/Scripting</span>
                         </div>
                         <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">Working NPC's [BETA]</h3>
-                        <p class="text-gray-400 text-sm mb-4">A Game Where You And Others Fight For The Best plot In The Game, By Buying Tbales, NPC's & Foods.</p>
+                        <p class="text-gray-400 text-sm mb-4">A Game Where You And Others Fight For The Best plot In The Game, By Buying Tables, NPC's & Foods.</p>
                         <div class="flex gap-2 text-xs text-gray-500">
                             <span>Lua</span>
                             <span>•</span>
@@ -687,7 +688,7 @@
 
     <!-- Footer -->
     <footer class="py-8 border-t border-white/5 text-center text-gray-600 text-sm">
-        <p>&copy; 2026 DevName. All rights reserved. Built with passion for Roblox development.</p>
+        <p>&copy; 2026 Brozy. All rights reserved. Built with passion for Roblox development.</p>
     </footer>
 
     <!-- Project Modal -->
@@ -775,46 +776,31 @@
         // Modal functionality
         const projectData = {
             'project1': {
-                title: 'RPG Battle System',
+                title: "Working NPC's [BETA]",
                 category: 'Full Project',
-                description: 'A comprehensive turn-based combat system featuring real-time multiplayer synchronization, custom animations, and an intuitive UI. The system includes character stats, inventory management, spell casting, and enemy AI.',
-                tech: ['Lua', 'Roact', 'Knit', 'DataStore2'],
-                features: ['Turn-based combat logic', 'Real-time multiplayer sync', 'Custom animation system', 'Inventory integration']
+                description: "A Game Where You And Others Fight For The Best plot In The Game, By Buying Tables, NPC's & Foods. Build your empire by hiring NPC workers, upgrading your equipment, and serving customers to earn coins!",
+                tech: ['Lua', 'Luau', 'Figma', 'Roblox Studio'],
+                features: ['NPC Worker System', 'Table & Equipment Upgrades', 'Food Service Mechanics', 'Plot Competition', 'Coin Economy'],
+                image: 'working_npcs_thumbnail.png',
+                gameUrl: 'https://www.roblox.com/games/70829226007706/Working-NPCs'
             },
             'project2': {
-                title: 'Futuristic HUD',
+                title: 'Military-Style UI',
                 category: 'UI Design',
-                description: 'Sci-fi inspired heads-up display designed for a space exploration game. Features dynamic health bars, shield indicators, minimap with player tracking, and contextual quest markers.',
+                description: 'Military UI, Made In Figma, Adding More Features Soon. A tactical interface designed for military-themed Roblox games with a clean, professional aesthetic.',
                 tech: ['Figma', 'Roblox Studio', 'TweenService'],
-                features: ['Adaptive layout system', 'Smooth health transitions', 'Minimap with fog of war', 'Quest tracking overlay']
+                features: ['Tactical HUD Layout', 'Health & Ammo Indicators', 'Minimap Integration', 'Team Communication Panel'],
+                image: null,
+                gameUrl: null
             },
             'project3': {
                 title: 'Inventory System',
                 category: 'Scripting',
                 description: 'Advanced inventory system with drag-and-drop functionality, item stacking, tooltips, and crafting integration. Uses OOP principles for easy extensibility.',
                 tech: ['Luau', 'OOP', 'DataStore2', 'Rodux'],
-                features: ['Drag & drop interface', 'Automatic item stacking', 'Crafting recipe system', 'Cloud save integration']
-            },
-            'project4': {
-                title: 'Game Shop Interface',
-                category: 'UI Design',
-                description: 'Premium in-game shop interface with category filtering, purchase animations, and Robux integration. Designed to maximize conversion rates while maintaining aesthetic appeal.',
-                tech: ['UI Layout', 'Animation', 'Monetization'],
-                features: ['Category filtering', 'Purchase confirmations', 'Rarity indicators', 'Limited-time offer badges']
-            },
-            'project5': {
-                title: 'NPC AI System',
-                category: 'Scripting',
-                description: 'Advanced NPC system with behavior trees, pathfinding, and dialogue integration. NPCs can perform complex routines, react to player actions, and manage quests.',
-                tech: ['PathfindingService', 'Behavior Trees', 'Dialogue System'],
-                features: ['Dynamic pathfinding', 'Behavior state machine', 'Multi-branch dialogue', 'Quest integration']
-            },
-            'project6': {
-                title: 'Tycoon Framework',
-                category: 'Full Project',
-                description: 'Complete tycoon game framework including progression systems, upgrade trees, automation features, and comprehensive data persistence.',
-                tech: ['Framework', 'Module Scripts', 'DataStores'],
-                features: ['Modular upgrade system', 'Auto-save functionality', 'Multi-floor support', 'Rebirth mechanics']
+                features: ['Drag & Drop Interface', 'Automatic Item Stacking', 'Crafting Recipe System', 'Cloud Save Integration'],
+                image: null,
+                gameUrl: null
             }
         };
 
@@ -824,10 +810,24 @@
             const body = document.getElementById('modal-body');
             const data = projectData[projectId];
 
+            const imageHtml = data.image ? 
+                `<div class="aspect-video rounded-2xl mb-6 overflow-hidden">
+                    <img src="${data.image}" alt="${data.title}" class="w-full h-full object-cover">
+                </div>` :
+                `<div class="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl mb-6 flex items-center justify-center text-6xl">
+                    ${projectId === 'project1' ? '🎮' : projectId === 'project2' ? '🎨' : projectId === 'project3' ? '⚙️' : '🏆'}
+                </div>`;
+
+            const gameLinkHtml = data.gameUrl ?
+                `<a href="${data.gameUrl}" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2 mb-4">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.523 0-10-4.477-10-10S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-2-5.5l6-4.5-6-4.5v9z"/>
+                    </svg>
+                    Play on Roblox
+                </a>` : '';
+
             body.innerHTML = `
-                <div class="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl mb-6 flex items-center justify-center text-6xl">
-                    ${projectId === 'project1' ? '🎮' : projectId === 'project2' ? '🎨' : projectId === 'project3' ? '⚙️' : projectId === 'project4' ? '🏪' : projectId === 'project5' ? '🤖' : '🏆'}
-                </div>
+                ${imageHtml}
                 <div class="flex items-center gap-2 mb-4">
                     <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-sm">${data.category}</span>
                 </div>
@@ -852,6 +852,8 @@
                         `).join('')}
                     </ul>
                 </div>
+
+                ${gameLinkHtml}
 
                 <button onclick="selectService('${data.category.toLowerCase().includes('ui') ? 'ui' : data.category.toLowerCase().includes('script') ? 'scripting' : 'full'}'); closeModal(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'});" class="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:shadow-lg transition-all">
                     Discuss Similar Project
